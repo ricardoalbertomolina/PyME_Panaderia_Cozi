@@ -11,3 +11,4 @@ def conectar():
     except sqlite3.Error as e:
         print(f"Error al conectar a la base de datos: {e}")
         return None
+    root.mainloop()
