@@ -199,7 +199,7 @@ https://drive.google.com/file/d/1MaetbMFsVgB22h2jH0rOrxLUNFLBabis/view?usp=shari
 
 -- 1. Tabla: Proveedor
 CREATE TABLE proveedor (
-    id_proveedor SERIAL PRIMARY KEY,
+    id_proveedor INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre_proveedor VARCHAR(150) NOT NULL,
     contacto VARCHAR(100),
     telefono VARCHAR(20),
@@ -208,7 +208,7 @@ CREATE TABLE proveedor (
 
 -- 2. Tabla: Cliente
 CREATE TABLE cliente (
-    id_cliente SERIAL PRIMARY KEY,
+    id_cliente INTEGER PRIMARY KEY AUTOINCREMENT,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
     email VARCHAR(150) UNIQUE,
@@ -219,7 +219,7 @@ CREATE TABLE cliente (
 
 -- 3. Tabla: Producto
 CREATE TABLE producto (
-    id_producto SERIAL PRIMARY KEY,
+    id_producto INTEGER PRIMARY KEY AUTOINCREMENT,
     id_proveedor INT NOT NULL,
     nombre VARCHAR(150) NOT NULL,
     categoria VARCHAR(100),
@@ -233,7 +233,7 @@ CREATE TABLE producto (
 
 -- 4. Tabla: Historial de Precio
 CREATE TABLE historial_precio (
-    id_historial_precio SERIAL PRIMARY KEY,
+    id_historial_precio INTEGER PRIMARY KEY AUTOINCREMENT,
     id_producto INT NOT NULL,
     precio_anterior DECIMAL(10,2) NOT NULL,
     precio_nuevo DECIMAL(10,2) NOT NULL,
@@ -246,7 +246,7 @@ CREATE TABLE historial_precio (
 
 -- 5. Tabla: Venta
 CREATE TABLE venta (
-    id_venta SERIAL PRIMARY KEY,
+    id_venta INTEGER PRIMARY KEY AUTOINCREMENT,
     id_cliente INT NOT NULL,
     fecha_venta TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     total DECIMAL(12,2) DEFAULT 0.00 NOT NULL,
@@ -258,7 +258,7 @@ CREATE TABLE venta (
 
 -- 6. Tabla: Detalle de Venta
 CREATE TABLE detalle_venta (
-    id_detalle SERIAL PRIMARY KEY,
+    id_detalle INTEGER PRIMARY KEY AUTOINCREMENT,
     id_venta INT NOT NULL,
     id_producto INT NOT NULL,
     cantidad INT NOT NULL CHECK (cantidad > 0),
@@ -276,7 +276,7 @@ CREATE TABLE detalle_venta (
 
 -- 7. Tabla: Historial de Venta
 CREATE TABLE historial_venta (
-    id_historial_venta SERIAL PRIMARY KEY,
+    id_historial_venta INTEGER PRIMARY KEY AUTOINCREMENT,
     id_venta INT NOT NULL,
     estado_venta VARCHAR(50) NOT NULL,
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
