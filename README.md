@@ -65,12 +65,12 @@ Los demás botones (Ventas, Clientes, etc.) todavía no tienen pantalla, solo im
             Modelo E-R normalizado 
 
 
-# 🗄️ Modelo de Base de Datos: Sistema de Ventas
+ Modelo de Base de Datos: Sistema de Ventas
 
 Este documento contiene el Modelo Entidad-Relación, el Diccionario de Datos y el Script SQL (DDL) normalizados y consistentes.
 
 
-📊 1. Modelo Entidad-Relación (Diagrama Mermaid)
+1. Modelo Entidad-Relación
 
 
     CLIENTE ||--o{ VENTA : "1:N (Realiza)"
@@ -91,10 +91,11 @@ Este documento contiene el Modelo Entidad-Relación, el Diccionario de Datos y e
     }
     PROVEEDOR {
         int id_proveedor PK
-        string nombre_empresa
+        string nombre_proveedor
         string contacto
         string telefono
         string email
+        
     }
     PRODUCTO {
         int id_producto PK
@@ -150,6 +151,7 @@ id_proveedor (PK)
 nombre_proveedor
 telefono
 email
+contacto
 
 PRODUCTO 
 id_producto (PK)
@@ -184,7 +186,7 @@ subtotal
 
 HISTORIAL_VENTA
 id_historial_venta (PK)
-id_venta 
+id_venta (FK)
 estado_venta 
 fecha_registro 
 observaciones 
@@ -198,7 +200,7 @@ https://drive.google.com/file/d/1MaetbMFsVgB22h2jH0rOrxLUNFLBabis/view?usp=shari
 -- 1. Tabla: Proveedor
 CREATE TABLE proveedor (
     id_proveedor SERIAL PRIMARY KEY,
-    nombre_empresa VARCHAR(150) NOT NULL,
+    nombre_proveedor VARCHAR(150) NOT NULL,
     contacto VARCHAR(100),
     telefono VARCHAR(20),
     email VARCHAR(150) UNIQUE
