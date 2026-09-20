@@ -112,8 +112,7 @@ erDiagram
         timestamp fecha_registro
         string observaciones
     }
-
-
+```
 
     2. Diccionario de Entidades
 CLIENTE: id_cliente (PK), nombre, apellido, email, telefono, direccion, fecha_registro
