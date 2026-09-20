@@ -1,5 +1,5 @@
 # PyME_Panaderia_Cozi
-Diseño e implementación de una aplicación de gestión para la optimización de inventario, ventas y trazabilidad productiva, con actualización de stock e ingresos. 
+Diseño e implementación de una aplicación de gestión para la PyME "Panadería Cozi", optimizando el inventario, la gestión de ventas y la reposición de stock.
 
 PROGRAMACIÓN Y BASE DE DATOS Módulo Programador 
 
