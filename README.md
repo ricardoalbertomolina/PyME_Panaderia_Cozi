@@ -21,8 +21,8 @@ Molina Ricardo
 Rodriguez Sofia Belen
 Parra Garcia Alexander
 Machado Rebeca Anahi
-Tula Emiliano 
-Puntano Ezequiel
+Tula Roni Emiliano
+Puntano, Ezequiel Gerardo
 Miranda Nicolas
 
 ---
