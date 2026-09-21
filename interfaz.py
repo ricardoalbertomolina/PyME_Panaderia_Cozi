@@ -1,7 +1,6 @@
-#Es el front de la pagina de la panaderia.
 import tkinter as tk
 from tkinter import ttk
-from acceso_a_datos import obtener_productos, obtener_clientes
+from Acceso_datos.acceso_a_datos import obtener_productos, obtener_clientes
 
 def cambiar_modulo(nombre_modulo):
     label_titulo.config(text=f"Módulo de {nombre_modulo}")

@@ -1,4 +1,4 @@
-from conexion import conectar
+from Conexion.conexion import conectar
 
 def obtener_productos():
     """Consulta y devuelve todos los productos de la base de datos."""
