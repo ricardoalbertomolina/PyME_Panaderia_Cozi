@@ -8,12 +8,21 @@ Enzo Eduardo Bruno
 **CICLO LECTIVO:** 2026  
 
 ### INTEGRANTES Y ROLES:
-* **Coordinador:** Rodriguez Sofia Belen
-* **Modelo de datos:** Machado Rebeca Anahi
-* **Interfaz:** Miranda Nicolas 
+* **Coordinador:** Rodriguez Sofia Belen y Tula Emiliano 
+* **Modelo de datos:** Machado Rebeca Anahi y Miranda Nicolas
+* **Interfaz:** Puntano Ezequiel 
 * **Acceso a datos:** Parra Alexander 
 * **Validaciones:** Parra Alexander 
-* **Documentación y pruebas:** Molina Ricardo
+* **Documentación y pruebas:** Molina Ricardo y Tula Emiliano 
+
+Nombres 
+Molina Ricardo
+Rodriguez Sofia Belen
+Parra Garcia Alexander
+Machado Rebeca Anahi
+Tula Emiliano 
+Puntano Ezequiel
+Miranda Nicolas
 
 ---
 
