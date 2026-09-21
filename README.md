@@ -2,7 +2,9 @@
 Diseño e implementación de una aplicación de gestión para la PyME "Panadería Cozi", optimizando el inventario, la gestión de ventas y la reposición de stock.
 
 **PROGRAMACIÓN Y BASE DE DATOS** - Módulo Programador  
-**PROFESORES:** Enzo  
+**PROFESORES:** Maria Florencia Garcia Zavia  
+Enzo Eduardo Bruno
+  
 **CICLO LECTIVO:** 2026  
 
 ### INTEGRANTES Y ROLES:
