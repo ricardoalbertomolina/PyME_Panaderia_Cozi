@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
-from Acceso_datos.acceso_a_datos import obtener_productos, obtener_clientes
+from Acceso_datos.acceso_a_datos import obtener_productos, obtener_clientes, obtener_proveedores
 from Conexion.conexion import conectar
 
 def abrir_ventana_agregar_producto():
@@ -73,6 +73,64 @@ def abrir_ventana_agregar_producto():
 
     tk.Button(ven_agregar, text="Guardar Producto", command=guardar_producto, font=("Arial", 10, "bold"), bg="#1abc9c", fg="white", bd=0, height=2, cursor="hand2").pack(fill=tk.X, padx=30, pady=20)
 
+def abrir_ventana_agregar_proveedor():
+    def guardar_proveedor():
+        empresa = entry_empresa.get().strip()
+        contacto = entry_contacto.get().strip()
+        telefono = entry_telefono.get().strip()
+        email = entry_email.get().strip()
+        
+        if not empresa:
+            messagebox.showerror("Error", "El nombre de la empresa es obligatorio.")
+            return
+            
+        try:
+            conexion = conectar()
+            if conexion:
+                cursor = conexion.cursor()
+                cursor.execute(
+                    "INSERT INTO proveedor (nombre_empresa, contacto, telefono, email) VALUES (?, ?, ?, ?)",
+                    (empresa, contacto, telefono, email)
+                )
+                conexion.commit()
+                conexion.close()
+                messagebox.showinfo("Éxito", "Proveedor guardado correctamente.")
+                ven_agregar_prov.destroy()
+                cambiar_modulo("Proveedores")
+        except Exception as e:
+            messagebox.showerror("Error de Base de Datos", f"No se pudo guardar: {e}")
+
+    ven_agregar_prov = tk.Toplevel(root)
+    ven_agregar_prov.title("Registrar Nuevo Proveedor")
+    ven_agregar_prov.geometry("350x360")
+    ven_agregar_prov.configure(bg="#2c3e50")
+    ven_agregar_prov.resizable(False, False)
+    ven_agregar_prov.grab_set()
+
+    tk.Label(ven_agregar_prov, text="Nuevo Proveedor", bg="#2c3e50", fg="#1abc9c", font=("Arial", 14, "bold")).pack(pady=15)
+
+    tk.Label(ven_agregar_prov, text="Nombre Empresa:", bg="#2c3e50", fg="white", font=("Arial", 9, "bold")).pack(anchor="w", padx=30)
+    global entry_empresa
+    entry_empresa = tk.Entry(ven_agregar_prov, font=("Arial", 11), bd=0)
+    entry_empresa.pack(pady=2, fill=tk.X, padx=30)
+
+    tk.Label(ven_agregar_prov, text="Contacto:", bg="#2c3e50", fg="white", font=("Arial", 9, "bold")).pack(anchor="w", padx=30)
+    global entry_contacto
+    entry_contacto = tk.Entry(ven_agregar_prov, font=("Arial", 11), bd=0)
+    entry_contacto.pack(pady=2, fill=tk.X, padx=30)
+
+    tk.Label(ven_agregar_prov, text="Teléfono:", bg="#2c3e50", fg="white", font=("Arial", 9, "bold")).pack(anchor="w", padx=30)
+    global entry_telefono
+    entry_telefono = tk.Entry(ven_agregar_prov, font=("Arial", 11), bd=0)
+    entry_telefono.pack(pady=2, fill=tk.X, padx=30)
+
+    tk.Label(ven_agregar_prov, text="Email:", bg="#2c3e50", fg="white", font=("Arial", 9, "bold")).pack(anchor="w", padx=30)
+    global entry_email
+    entry_email = tk.Entry(ven_agregar_prov, font=("Arial", 11), bd=0)
+    entry_email.pack(pady=2, fill=tk.X, padx=30)
+
+    tk.Button(ven_agregar_prov, text="Guardar Proveedor", command=guardar_proveedor, font=("Arial", 10, "bold"), bg="#1abc9c", fg="white", bd=0, height=2, cursor="hand2").pack(fill=tk.X, padx=30, pady=20)
+
 def cambiar_modulo(nombre_modulo):
     label_titulo.config(text=f"Módulo de {nombre_modulo}")
     
@@ -93,11 +151,11 @@ def cambiar_modulo(nombre_modulo):
         tabla_datos.heading("stock", text="Stock")
         tabla_datos.heading("precio", text="Precio")
         
-        tabla_datos.column("codigo", width=60, anchor=tk.CENTER)
-        tabla_datos.column("nombre", width=220)
-        tabla_datos.column("categoria", width=130)
-        tabla_datos.column("stock", width=80, anchor=tk.CENTER)
-        tabla_datos.column("precio", width=100, anchor=tk.E)
+        tabla_datos.column("codigo", width=80, anchor=tk.CENTER)
+        tabla_datos.column("nombre", width=250)
+        tabla_datos.column("categoria", width=150)
+        tabla_datos.column("stock", width=90, anchor=tk.CENTER)
+        tabla_datos.column("precio", width=110, anchor=tk.E)
         
         productos = obtener_productos()
         for prod in productos:
@@ -121,6 +179,27 @@ def cambiar_modulo(nombre_modulo):
         for cli in clientes:
             tabla_datos.insert("", tk.END, values=cli)
             
+    elif nombre_modulo == "Proveedores":
+        btn_nuevo_prov = tk.Button(frame_acciones, text="+ Nuevo Proveedor", command=abrir_ventana_agregar_proveedor, font=("Arial", 10, "bold"), bg="#27ae60", fg="white", bd=0, padx=10, pady=5, cursor="hand2")
+        btn_nuevo_prov.pack(side=tk.LEFT)
+        
+        tabla_datos["columns"] = ("id", "empresa", "contacto", "telefono", "email")
+        tabla_datos.heading("id", text="Código")
+        tabla_datos.heading("empresa", text="Empresa")
+        tabla_datos.heading("contacto", text="Contacto")
+        tabla_datos.heading("telefono", text="Teléfono")
+        tabla_datos.heading("email", text="Correo Electrónico")
+        
+        tabla_datos.column("id", width=70, anchor=tk.CENTER)
+        tabla_datos.column("empresa", width=200)
+        tabla_datos.column("contacto", width=150)
+        tabla_datos.column("telefono", width=120, anchor=tk.CENTER)
+        tabla_datos.column("email", width=200)
+        
+        proveedores = obtener_proveedores()
+        for prov in proveedores:
+            tabla_datos.insert("", tk.END, values=prov)
+            
     else:
         tabla_datos["columns"] = ("mensaje",)
         tabla_datos.heading("mensaje", text="Información")
@@ -128,7 +207,7 @@ def cambiar_modulo(nombre_modulo):
         tabla_datos.insert("", tk.END, values=(f"Sección de {nombre_modulo} en desarrollo...",))
 
 root = tk.Tk()
-root.title("Sistema de Ventas - Panadería Cozy")
+root.title("Sistema de Ventas - Panadería Cozi")
 root.geometry("1050x550")
 root.configure(bg="#f4f6f7")
 
@@ -140,7 +219,7 @@ style.configure("Treeview", font=("Arial", 10), rowheight=26)
 frame_menu = tk.Frame(root, bg="#2c3e50", width=220)
 frame_menu.pack(side=tk.LEFT, fill=tk.Y)
 
-tk.Label(frame_menu, text="PANADERÍA COZY", bg="#2c3e50", fg="#ecf0f1", font=("Arial", 12, "bold")).pack(pady=25)
+tk.Label(frame_menu, text="PANADERÍA COZI", bg="#2c3e50", fg="#ecf0f1", font=("Arial", 12, "bold")).pack(pady=25)
 
 btn_estilo = {"font": ("Arial", 10, "bold"), "bg": "#34495e", "fg": "white", "bd": 0, "activebackground": "#1abc9c", "activeforeground": "white", "height": 2}
 

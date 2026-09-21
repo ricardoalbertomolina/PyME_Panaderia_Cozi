@@ -27,3 +27,17 @@ def obtener_clientes():
         finally:
             conexion.close()
     return clientes
+
+def obtener_proveedores():
+    conexion = conectar()
+    proveedores = []
+    if conexion:
+        try:
+            cursor = conexion.cursor()
+            cursor.execute("SELECT id_proveedor, nombre_empresa, contacto, telefono, email FROM proveedor")
+            proveedores = cursor.fetchall()
+        except Exception as e:
+            print(f"Error al obtener proveedores: {e}")
+        finally:
+            conexion.close()
+    return proveedores
