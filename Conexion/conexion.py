@@ -1,4 +1,3 @@
-##persistencia entre front y backend de la aplicación
 import sqlite3
 
 def conectar():
