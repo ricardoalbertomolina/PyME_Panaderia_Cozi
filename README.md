@@ -182,8 +182,8 @@ CREATE TABLE producto (
 CREATE TABLE historial_precio (
     id_historial_precio INTEGER PRIMARY KEY AUTOINCREMENT,
     id_producto INTEGER NOT NULL,
-    precio_anterior DECIMAL(10,2) NOT NULL,
-    precio_nuevo DECIMAL(10,2) NOT NULL,
+    precio_anterior DECIMAL(10,2) NOT NULL CHECK (precio_anterior > 0),
+    precio_nuevo DECIMAL(10,2) NOT NULL  CHECK (precio_nuevo > 0),
     fecha_cambio TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
     CONSTRAINT fk_historial_producto 
         FOREIGN KEY (id_producto) 
