@@ -188,7 +188,7 @@ CREATE TABLE historial_precio (
     CONSTRAINT fk_historial_producto 
         FOREIGN KEY (id_producto) 
         REFERENCES producto(id_producto) 
-        ON DELETE CASCADE
+        ON DELETE RESTRICT
 );
 
 -- 5. Tabla: Venta
