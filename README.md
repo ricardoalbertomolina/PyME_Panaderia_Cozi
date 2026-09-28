@@ -36,6 +36,7 @@ Miranda Nicolas
 * **Proveedor:** Representa la reposición de stock de los productos finales.
 * **Historial_Precio:** Entidad para guardar históricos de cambios en los precios.
 * **Historial_Venta:** Permite guardar el registro de los estados de todas las ventas.
+* **categoria:** Entidad para guardar las distintas categorias de productos.
 
 ---
 
@@ -43,17 +44,20 @@ Miranda Nicolas
 
 **Bocetos de pantallas:** [Ver PDF en Google Drive](https://drive.google.com/file/d/1F0he--sNUQXeaUCiHJbi4hC0_SKS13Sk/view?usp=sharing)
 
-**Breve explicación del funcionamiento:**
-* **Pantalla dividida en dos:**
-  * **Izquierda:** Menú con botones para moverse entre: Productos, Ventas, Clientes, Proveedores y Reportes.
-  * **Derecha:** Muestra la pantalla del módulo en el que estés (ej. la lista de productos).
-* **Pantalla de Productos:**
-  * Tiene un título, un botón para agregar nuevo producto, una barra para buscar y un filtro por categoría.
-  * Muestra una tabla con: Código, Producto, Stock y Precio.
-  * Abajo tiene botones para Editar o Eliminar el producto que selecciones en la tabla.
-* **Tecnología:** Se usa la librería **Tkinter** (Python).
-  * La ventana principal tiene funciones para armar el menú, el panel de productos y cargar datos de prueba. Los demás botones por el momento imprimen mensajes en consola para probar su interactividad.
+## Estado Actual de la Aplicación (Funcionalidades Implementadas)
 
+El sistema de gestión comercial para **Panadería Cozi** se encuentra en una etapa avanzada de desarrollo sobre la arquitectura modular en Python, incorporando las siguientes características operativas:
+
+* **Módulo de Autenticación (Login):** Pantalla de acceso segura que requiere credenciales de validación (Usuario y Contraseña) para iniciar la interfaz principal del sistema.
+* **Conexión y Gestión de Base de Datos:** Conexión persistente mediante SQLite (`sistema_ventas_panaderia_cozy.db`), estructurada en tablas relacionales (`producto`, `cliente`, `proveedor`, `categoria`).
+* **Módulo de Productos:** 
+  * Consulta en tiempo real de los productos almacenados en la base de datos.
+  * Formulario interactivo integrado para el alta y registro de nuevos productos asociados a sus respectivos proveedores.
+* **Módulo de Clientes:** Visualización dinámica del listado de clientes registrados en el sistema.
+* **Módulo de Proveedores:** 
+  * Listado completo de proveedores activos desde la base de datos.
+  * Pantalla de registro para incorporar nuevos proveedores comerciales.
+* **Módulo de Categorías:** Gestión y clasificación de los rubros de productos con su respectiva tabla y ventana de alta.
 ---
 
 ## 🗄️ MODELO DE BASE DE DATOS
