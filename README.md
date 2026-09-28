@@ -233,3 +233,10 @@ CREATE TABLE historial_venta (
         REFERENCES venta(id_venta) 
         ON DELETE CASCADE
 );
+
+--8. Tabla: Categoria
+CREATE TABLE IF NOT EXISTS categoria (
+    id_categoria INTEGER PRIMARY KEY AUTOINCREMENT,
+    nombre TEXT NOT NULL,
+    descripcion TEXT
+);
