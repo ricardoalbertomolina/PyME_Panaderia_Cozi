@@ -1,19 +1,21 @@
-# PyME_Panaderia_Cozi
-Diseño e implementación de una aplicación de gestión para la PyME "Panadería Cozi", optimizando el inventario, la gestión de ventas y la reposición de stock.
+# Sistema de gestion Panaderia Cozi
+Diseño e implementación de una aplicación de gestión para la PyME "Panadería Cozi", optimizando el inventario, la gestión de ventas y la reposición de stock desarrollada para la Tecnicatura Superior en Desarrollo de Software del ISPC.
 
-**PROGRAMACIÓN Y BASE DE DATOS** - Módulo Programador  
-**PROFESORES:** Maria Florencia Garcia Zavia  
-Enzo Eduardo Bruno
+**PROGRAMACIÓN Y BASE DE DATOS** - **MÓDULO PROGRAMADOR**  
+
+**PROFESORES:** 
+- Maria Florencia Garcia Zavia  
+- Enzo Eduardo Bruno
   
 **CICLO LECTIVO:** 2026  
 
 ### INTEGRANTES Y ROLES:
-* **Coordinador:** Rodriguez Sofia Belen y Tula Emiliano 
-* **Modelo de datos:** Machado Rebeca Anahi y Miranda Nicolas
+* **Coordinador:** Rodriguez Sofia Belen 
+* **Modelo de datos:** Machado Rebeca Anahi, Miranda Nicolas
 * **Interfaz:** Puntano Ezequiel 
 * **Acceso a datos:** Parra Alexander 
-* **Validaciones:** Parra Alexander 
-* **Documentación y pruebas:** Molina Ricardo y Tula Emiliano 
+* **Validaciones:** Tula Emiliano
+* **Documentación y pruebas:** Molina Ricardo
 
 ---
 
@@ -25,7 +27,7 @@ Enzo Eduardo Bruno
 * **Cliente:** Registro de clientes recurrentes.
 * **Proveedor:** Representa la reposición de stock de los productos finales.
 * **Historial_Precio:** Entidad para guardar históricos de cambios en los precios.
-* **Historial_Venta:** Permite guardar el registro de los estados de todas las ventas.
+
 
 ---
 
@@ -45,4 +47,25 @@ Enzo Eduardo Bruno
   * La ventana principal tiene funciones para armar el menú, el panel de productos y cargar datos de prueba. Los demás botones por el momento imprimen mensajes en consola para probar su interactividad.
 
 ---
+## Tecnologías
 
+- Python 3
+- CustomTkinter
+- tkinter y ttk
+- Mysql
+
+---
+## Estructura
+
+```text
+PyME_Panaderia_Cozi/
+├── interfaz/
+│   ├── Interfaz_principal.py
+│   ├── Login.py
+├── Datos/
+│   ├── acceso_a_datos.py
+└── Conexion/
+│   ├── conexion.py
+├── main.py
+├── README.md
+```
