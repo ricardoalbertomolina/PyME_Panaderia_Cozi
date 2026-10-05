@@ -1,8 +1,7 @@
-import login
+from Interfaz import login
 
 def main():
-    credencial = login.verificar_acceso()
-    return credencial
+    login.iniciar_login()
 
 if __name__ == "__main__":
     main()
