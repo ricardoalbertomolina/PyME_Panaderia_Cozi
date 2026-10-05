@@ -33,7 +33,7 @@ Diseño e implementación de una aplicación de gestión para la PyME "Panaderí
 
 ## 💻 INTERFAZ Y BOCETOS
 
-**Bocetos de pantallas:** [Ver PDF en Google Drive](https://drive.google.com/file/d/1F0he--sNUQXeaUCiHJbi4hC0_SKS13Sk/view?usp=sharing)
+**Bocetos de pantallas:** [Enlace](https://drive.google.com/file/d/1Nx_9Q5KZE8eGQSQ4LkN_1-m_OVoIoPfT/view?usp=sharing "Enlace")
 
 **Breve explicación del funcionamiento:**
 * **Pantalla dividida en dos:**
@@ -50,7 +50,6 @@ Diseño e implementación de una aplicación de gestión para la PyME "Panaderí
 ## Tecnologías
 
 - Python 3
-- CustomTkinter
 - tkinter y ttk
 - Mysql
 
