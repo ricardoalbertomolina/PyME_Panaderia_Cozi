@@ -1,5 +1,5 @@
 # File: Datos/acceso_a_datos.py
-from Conexion.conexion import ConexionDB
+from Conexion.conexion import conectar
 
 
 class ProductoDAO:
