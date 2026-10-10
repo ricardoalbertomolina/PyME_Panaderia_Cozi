@@ -90,7 +90,7 @@ Para verificar MySQL, abrí una terminal y ejecutá:
 
     mysql --version
 
-Si dice "command not found" o "no se reconoce", hay que agregar MySQL al PATH (ver sección "Solución de problemas").
+Si dice "command not found" o "no se reconoce", hay que agregar MySQL al PATH.
 
 ## CÓMO PROBAR EL PROYECTO
 
